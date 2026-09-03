@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raunak kumar | BCA Student</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0b1020;
+            color: #ffffff;
+        }
+
+        /* NAVBAR */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(11,16,32,0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #252d45;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #00e5ff;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00e5ff;
+        }
+
+        .menu {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* HOME */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 8% 50px;
+        }
+
+        .hero {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero-text h4 {
+            color: #00e5ff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 span {
+            color: #00e5ff;
+        }
+
+        .hero-text h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #c7d0e0;
+        }
+
+        .hero-text p {
+            color: #aeb8ca;
+            line-height: 1.8;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #00e5ff;
+            color: #07101b;
+        }
+
+        .primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px rgba(0,229,255,0.5);
+        }
+
+        .secondary {
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+        }
+
+        .secondary:hover {
+            background: #00e5ff;
+            color: #07101b;
+        }
+
+        /* PROFILE CIRCLE */
+        .hero-image {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            border: 5px solid #00e5ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111a30;
+            box-shadow: 0 0 50px rgba(0,229,255,0.25);
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .hero-image span {
+            font-size: 100px;
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* COMMON */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+        }
+
+        .section-title h2 span {
+            color: #00e5ff;
+        }
+
+        .section-title p {
+            color: #9da8bc;
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-card {
+            background: #11182b;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #252f49;
+        }
+
+        .about-card h3 {
+            color: #00e5ff;
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+
+        .about-card p {
+            color: #adb7c9;
+            line-height: 1.8;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info div {
+            background: #11182b;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 3px solid #00e5ff;
+        }
+
+        .info strong {
+            display: block;
+            color: #00e5ff;
+            margin-bottom: 5px;
+        }
+
+        .info span {
+            color: #d5dbea;
+        }
+
+        /* SKILLS */
+        .skills-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #11182b;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 18px;
+            border: 1px solid #252f49;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            border-color: #00e5ff;
+            box-shadow: 0 10px 30px rgba(0,229,255,0.1);
+        }
+
+        .skill .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            color: #9da8bc;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* PROJECTS */
+        .projects {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #11182b;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #252f49;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+        }
+
+        .project-top {
+            height: 150px;
+            background: linear-gradient(135deg,#0b6070,#17233e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .project-content p {
+            color: #9da8bc;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .tags {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tags span {
+            padding: 6px 10px;
+            background: #202b43;
+            color: #00e5ff;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        /* EDUCATION */
+        .education {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .edu-box {
+            background: #11182b;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00e5ff;
+            border-radius: 10px;
+        }
+
+        .edu-box h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .edu-box p {
+            color: #adb7c9;
+            line-height: 1.6;
+        }
+
+        /* CYBER SECURITY */
+        .cyber {
+            max-width: 1000px;
+            margin: auto;
+            background: linear-gradient(135deg,#101b31,#0b2632);
+            padding: 45px;
+            border-radius: 25px;
+            border: 1px solid #21435a;
+            text-align: center;
+        }
+
+        .cyber .big-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .cyber h3 {
+            font-size: 30px;
+            color: #00e5ff;
+            margin-bottom: 15px;
+        }
+
+        .cyber p {
+            color: #b5bfd0;
+            line-height: 1.8;
+        }
+
+        /* CONTACT */
+        .contact {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: #11182b;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #252f49;
+        }
+
+        .contact-card h3 {
+            color: #00e5ff;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 18px 0;
+            color: #b8c2d3;
+        }
+
+        .contact-item strong {
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            background: #0c1425;
+            border: 1px solid #2a3651;
+            border-radius: 10px;
+            color: white;
+            outline: none;
+        }
+
+        form textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        form button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #070b15;
+            color: #8994a9;
+            border-top: 1px solid #202941;
+        }
+
+        footer span {
+            color: #00e5ff;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 900px) {
+
+            nav ul {
+                position: absolute;
+                top: 75px;
+                left: -100%;
+                width: 100%;
+                background: #0b1020;
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+                transition: 0.3s;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-text h1 {
+                font-size: 45px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .about,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 550px) {
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .hero-image {
+                width: 240px;
+                height: 240px;
+            }
+
+            .hero-image span {
+                font-size: 70px;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .hero-text h2 {
+                font-size: 22px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="logo">R<span> k.</span></div>
+
+            <ul id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="menu" onclick="toggleMenu()">☰</div>
+        </nav>
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home">
+
+        <div class="hero">
+
+            <div class="hero-text">
+
+                <h4>Hello, I'm</h4>
+
+                <h1>Raunak <span>kumar</span></h1>
+
+                <h2>BCA Student | Web Developer</h2>
+
+                <p>
+                    I am a BCA student passionate about Web Development,
+                    Cyber Security and modern technologies. I love learning
+                    new skills and creating useful digital projects.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn primary">
+                        View Projects
+                    </a>
+
+                    <a href="#contact" class="btn secondary">
+                        Contact Me
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+                <span>👨‍💻</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About <span>Me</span></h2>
+            <p>Get to know me</p>
+        </div>
+
+        <div class="about">
+
+            <div class="about-card">
+
+                <h3>Who I Am?</h3>
+
+                <p>
+                    I am a BCA student interested in technology and
+                    programming. My main interests are Web Development
+                    and Cyber Security. I am continuously improving my
+                    technical skills by practicing HTML, CSS and JavaScript
+                    and creating small projects.
+                </p>
+
+            </div>
+
+
+            <div class="info">
+
+                <div>
+                    <strong>Name</strong>
+                    <span>Raunak kumar</span>
+                </div>
+
+                <div>
+                    <strong>Course</strong>
+                    <span>BCA</span>
+                </div>
+
+                <div>
+                    <strong>Semester</strong>
+                    <span>1st Semester</span>
+                </div>
+
+                <div>
+                    <strong>Interest</strong>
+                    <span>Cyber Security</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+            <p>Technologies I am learning</p>
+        </div>
+
+
+        <div class="skills-container">
+
+            <div class="skill">
+                <div class="icon">🌐</div>
+                <h3>HTML</h3>
+                <p>
+                    Creating structured and semantic web pages.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🎨</div>
+                <h3>CSS</h3>
+                <p>
+                    Designing responsive and attractive websites.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>
+                    Adding interaction and functionality to websites.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🔐</div>
+                <h3>Cyber Security</h3>
+                <p>
+                    Learning security concepts and ethical practices.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>My <span>Projects</span></h2>
+            <p>Some projects I have created</p>
+        </div>
+
+
+        <div class="projects">
+
+            <div class="project">
+
+                <div class="project-top">
+                    📝
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Registration Form</h3>
+
+                    <p>
+                        A clean student registration form created
+                        using HTML and CSS.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-top">
+                    📊
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Student Marksheet</h3>
+
+                    <p>
+                        A digital marksheet webpage designed using
+                        HTML and CSS.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-top">
+                    🖥️
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Student Portal</h3>
+
+                    <p>
+                        A modern student portal interface for displaying
+                        useful academic information.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="section-title">
+            <h2>My <span>Education</span></h2>
+            <p>My academic journey</p>
+        </div>
+
+
+        <div class="education">
+
+            <div class="edu-box">
+
+                <h3>Bachelor of Computer Applications (BCA)</h3>
+
+                <p>
+                    Currently pursuing BCA and learning programming,
+                    web development, computer fundamentals and
+                    cyber security.
+                </p>
+
+            </div>
+
+
+            <div class="edu-box">
+
+                <h3>Class 12th</h3>
+
+                <p>
+                    Completed higher secondary education and
+                    developed an interest in computer technology.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CYBER SECURITY -->
+    <section>
+
+        <div class="section-title">
+            <h2>Career <span>Goal</span></h2>
+            <p>What I want to achieve</p>
+        </div>
+
+
+        <div class="cyber">
+
+            <div class="big-icon">🔐</div>
+
+            <h3>Cyber Security</h3>
+
+            <p>
+                My goal is to build a career in Cyber Security.
+                I want to understand how systems and networks work,
+                learn security techniques and develop the skills
+                required to become a responsible cybersecurity professional.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Contact <span>Me</span></h2>
+            <p>Let's connect</p>
+        </div>
+
+
+        <div class="contact">
+
+            <div class="contact-card">
+
+                <h3>Contact Information</h3>
+
+                <div class="contact-item">
+                    <strong>📧 Email</strong>
+                    singhrajputraunak36@gmail.com
+                </div>
+
+                <div class="contact-item">
+                    <strong>📱 Phone</strong>
+                    +91 8002992065
+                </div>
+
+                <div class="contact-item">
+                    <strong>💼 LinkedIn</strong>
+                    linkedin.com/in/yourprofile
+                </div>
+
+                <div class="contact-item">
+                    <strong>💻 GitHub</strong>
+                   https://github.com/raunaksingh36-tybe
+                </div>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>Send a Message</h3>
+
+                <form onsubmit="sendMessage(event)">
+
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="Your Email"
+                        required
+                    >
+
+                    <textarea
+                        placeholder="Your Message"
+                        required
+                    ></textarea>
+
+                    <button class="btn primary">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <span>Raunak kumar</span>.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            BCA Student | Web Development | Cyber Security
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function toggleMenu() {
+
+            document
+                .getElementById("navLinks")
+                .classList.toggle("active");
+
+        }
+
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you! Your message has been received."
+            );
+
+        }
+
+
+        // Close mobile menu after clicking a link
+
+        document
+            .querySelectorAll("#navLinks a")
+            .forEach(function(link) {
+
+                link.addEventListener("click", function() {
+
+                    document
+                        .getElementById("navLinks")
+                        .classList.remove("active");
+
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>
